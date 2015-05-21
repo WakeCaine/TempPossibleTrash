@@ -1,0 +1,8 @@
+C:\Users\Shaker\Documents\GitHub\ESOnline\Test applications\DesignPatterns\DesignPatterns\bin\Debug\DesignPatterns.exe
+C:\Users\Shaker\Documents\GitHub\ESOnline\Test applications\DesignPatterns\DesignPatterns\bin\Debug\DesignPatterns.pdb
+C:\Users\Shaker\Documents\GitHub\ESOnline\Test applications\DesignPatterns\DesignPatterns\obj\Debug\DesignPatterns.exe
+C:\Users\Shaker\Documents\GitHub\ESOnline\Test applications\DesignPatterns\DesignPatterns\obj\Debug\DesignPatterns.pdb
+C:\Users\Shaker\Dropbox\DesignPatterns\DesignPatterns\obj\Debug\DesignPatterns.exe
+C:\Users\Shaker\Dropbox\DesignPatterns\DesignPatterns\obj\Debug\DesignPatterns.pdb
+C:\Users\Shakecaine\Dropbox\DesignPatterns\DesignPatterns\obj\Debug\DesignPatterns.exe
+C:\Users\Shakecaine\Dropbox\DesignPatterns\DesignPatterns\obj\Debug\DesignPatterns.pdb
