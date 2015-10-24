@@ -1,0 +1,77 @@
+﻿@model ESO_Project.Models.EditUserViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="panel-heading">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    <font face="Times New Roman" size="20" color="yellow">@ViewBag.Title</font>
+                </th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <div class="panel-body bg-info img-rounded">
+            <div class="panel panel-primary img-rounded">
+                <div class="bg-primary col-md-12 container-fluid img-rounded">
+                    <div class="col-md-4 container-fluid" align="left">
+                        <b>Edition panel:</b>
+                    </div>
+                    <div class="col-md-3"></div>
+                    <div class="col-md-3"></div>
+                </div>
+            </div>
+
+
+            <hr />
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(model => model.Id)
+
+            <div class="form-group">
+                <div class="col-md-2"><b>Email:</b></div>
+                <!-- @Html.LabelFor(model => model.Email, new { @class = "control-label col-md-2" })-->
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Email)
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-2"><b>Roles:</b></div>
+                <!--@Html.Label("Roles", new { @class = "control-label col-md-2" })-->
+                <span class=" col-md-10">
+                    @foreach (var item in Model.RolesList)
+                    {
+                        <input type="checkbox" name="SelectedRole" value="@item.Value" checked="@item.Selected" class="checkbox-inline" />
+                        @Html.Label(item.Value, new { @class = "control-label" })
+                    }
+                </span>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-warning" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

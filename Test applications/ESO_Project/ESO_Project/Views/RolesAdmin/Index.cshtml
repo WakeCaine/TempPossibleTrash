@@ -1,0 +1,32 @@
+﻿@model IEnumerable<ESO_Project.Models.ApplicationRole>
+<br /><br />
+@{
+    ViewBag.Title = "Role's list";
+}
+<table class="table">
+    <td><b>Name:</b></td>
+    <td><b>Description:</b></td>
+    <td><b>Actions:</b></td>
+    <td>@Html.ActionLink("Add new", "Create", null, new { @class = "btn btn-success" })</td>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+
+            <td>@Html.DisplayFor(modelItem => item.Description)</td>
+
+            <td>
+                @Html.ActionLink("Edycja", "Edit", new { id = item.Id }, new { @class = "btn btn-warning" })
+            @Html.ActionLink("Detale", "Details", new { id = item.Id }, new { @class = "btn btn-success" })
+            @Html.ActionLink("Usuń", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+        </td>
+        <td></td>
+
+    </tr>
+    }
+
+</table>

@@ -1,0 +1,98 @@
+﻿@model ESO_Project.Models.ApplicationRole
+
+@{
+    ViewBag.Title = "Detale roli";
+}
+
+<<div class="panel-heading">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    <font face="Times New Roman" size="20" color="yellow">@ViewBag.Title</font>
+                </th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+<div>
+
+    <div class="panel-body">
+        <div class="panel panel-primary">
+            <div class="bg-primary col-md-12 container-fluid">
+                <div class="col-md-1 container-fluid" align="left">
+                    <b>Role</b>
+                </div>
+
+            </div>
+        </div>
+        <div class="panel panel-info">
+
+
+            <div class="dl-horizontal bg-info">
+                <dt>
+                    <b>Nazwa roli:</b>
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+                <dt>
+                    <b>Opis roli:</b>
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+                
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<<div class="panel-body">
+    <div class="panel panel-primary">
+        <div class="bg-primary col-md-12 container-fluid">
+            <div class="col-md-6 container-fluid" align="left">
+                <b>Lista użytkowników z tą rolą:</b>
+            </div>
+
+        </div>
+    </div>
+    <dl class="panel panel-info">
+        <dl class="bg-info col-md-12 container-fluid">
+
+            <dl class="dl-horizontal bg-info">
+                @if (ViewBag.UserCount == 0)
+                {
+                    <hr />
+                    <b><p class="bg-warning">Nie znaleziono użytkowników z tą rolą</p></b>
+                    
+                }
+
+                <table class="table">
+
+                    @foreach (var item in ViewBag.Users)
+                    {
+                        <tr>
+                            <td>
+                                <b> @item.UserName</b>
+                            </td>
+                        </tr>
+                    }
+                </table>
+
+            </dl>
+        </dl>
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Edycja roli", "Edit", new { id = Model.Id }, new { @class = "btn btn-warning" }) |
+    @Html.ActionLink("Powrót do listy roli", "Index", null, new { @class = "btn btn-info" })
+</p>
+
+
+
+

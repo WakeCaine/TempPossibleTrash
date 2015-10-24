@@ -1,0 +1,47 @@
+﻿@model ESO_Project.Models.ApplicationUser
+
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br /><br />
+<table class="table">
+    <td><b>E-mail:</b></td>
+    <td><b>Registration date:</b></td>
+    <td><b>Phone number:</b></td>
+    <td></td>
+    
+   
+        <tr>
+
+            <td>
+               @User.Identity.Name
+            </td>
+
+            <td>@Html.DisplayFor(model => model.RegisterDateTime)</td>
+            
+            <td>@Html.DisplayFor(model => model.PhoneNumber)</td>
+            <td>@Html.ActionLink("Account options", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })</td>
+            
+        </tr>
+
+    
+</table>
+<br />
+<table class="table">
+    <td><b>User's roles list:</b></td>
+    
+        @foreach (var item in ViewBag.RoleNames)
+        {
+        <tr>
+            <td>
+                @item
+            </td>
+        </tr>
+        }
+   
+
+</table>
+
+

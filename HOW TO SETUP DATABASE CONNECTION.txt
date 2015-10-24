@@ -1,0 +1,25 @@
+Projekt jest buildowany pod Visual Studio 2013 Ultimate. Nie wiem, jak siê zachowa w innym œrodowisku. W razie problemów piszcie do mnie.
+
+1.Zak³adam, ¿e wiecie, jak stworzyæ instancjê SQL Server. 
+Projekt jest tak przyjemnie postawiony, ¿e nie znaj¹c nazwy instancji mo¿ecie siê po³¹czyæ z baz¹.
+Na pocz¹tek sprawdŸcie, czy wasz SQL Server jest uruchomiony w SQL Configuration Manager. Jeœli nie to go uruchomcie.
+
+W przypadku z³ej konfiguracji trzeba wejœæ w SQL Server Network Configuration w SQL Configuration Manager i Protocols for WaszaInstancja.
+Potem TCP/IP (musi byæ Enabled). Wszystkie TCP Port zmieniamy na 1433. Restartujemy server i powinno dzia³aæ.
+
+2.Po uruchomieniu projektu wchodzimy do folderu Migration, jeœli jest coœ poza plikiem Configuration.cs to kasujemy.
+Uruchamiamy Package Manager Console w Visual Studio. Jak nie mo¿ecie znaleŸæ to u góry po prawej jest Quick Launch i tam mo¿na wyszukaæ.
+
+W konsoli Package Manager wpisujemy "add-migration 1".
+Nastêpnie "update-database -verbose".
+
+Baza powinna zostaæ wygenerowana. W razie problemów zg³aszaæ siê do mnie.
+
+3.Jeœli wszystko wykona³o siê poprawnie teraz mo¿ecie siê zarejestrowaæ i zalogowaæ do serwisu, jak zbuildujecie projekt.
+
+
+
+
+
+Na obecn¹ chwilê MSQL, jednak w celu szyfrowania bazy przeniesiemy siê na MySQL, jednak to dopiero, jak bêdziemy mieæ pewnoœæ, ¿e wiêkszoœæ serwisu dzia³a.
+Pliki u¿ytkownika wrzucone na serwer s¹ w folderze UserFiles/NazwaU¿ytkownika w g³ównym folderze projektu.

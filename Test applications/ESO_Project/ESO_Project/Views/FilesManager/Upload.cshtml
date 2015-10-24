@@ -1,0 +1,79 @@
+﻿@model ESO_Project.Models.FilesManagerModel
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+
+    <br /><br />
+    <div class="bs-example">
+        <!--+
+        Button HTML (to Trigger Modal) -->
+        <a href="#myModal" class="btn btn-lg btn-primary pull-right" data-toggle="modal">Upload File</a>
+
+
+
+
+        <!-- Modal HTML -->
+
+    </div>
+
+    <h2>My Files</h2>
+    <table class="table">
+        <td>Name</td>
+        <td>Size</td>
+        <td>SyncTime</td>
+        <td></td>
+        @foreach (var item in Model.files)
+        {
+            <tr>
+            
+                <td>
+                    @if ((item.Type == ".jpg" || item.Type == ".jpeg" || item.Type == ".png" || item.Type == ".gif" ) && User.IsInRole("Premium"))
+                    { 
+                        @Html.ActionLink(item.Name, "Show", new { id = item.Id}, new { @class = "" })
+                    }
+                    else { @Html.DisplayFor(modelItem => item.Name) }
+                    </td>
+                
+
+                
+
+                <td>@Html.DisplayFor(modelItem => item.Size)</td>
+                <td>@Html.DisplayFor(modelItem => item.SyncTime)</td>
+                <td>
+                    @Html.ActionLink("Download", "Download", new { file = item.Id }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+
+
+                </td>
+            </tr>
+
+        }
+    </table>
+        <!-- MODALS-->
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Confirmation</h4>
+                </div>
+                <div class="modal-body">
+                    @using (Html.BeginForm("Upload", "FilesManager", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        @Html.TextBoxFor(x => x.File, new { type = "file" })
+                        @Html.ValidationMessageFor(x => x.File)
+                        <br />
+                        <input type="submit" value="Upload File" class="btn btn-success" />
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+}

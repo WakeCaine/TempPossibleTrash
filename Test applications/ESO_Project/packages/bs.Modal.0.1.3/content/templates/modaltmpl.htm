@@ -1,0 +1,18 @@
+﻿<!-- Modal -->
+<div class="modal fade" id="<%= rc.Id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog <% if(rc.largeModal) { %> <%= 'modal-lg' %> <%}%> ">
+    <div class="modal-content">
+      <div class="modal-header primary">
+        <button type="button" class="close modalCloseButton" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel"><%= rc.headerText %></h4>
+      </div>
+      <div class="modal-body">
+          <%= rc.content %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn modalCloseButton btn-default" data-dismiss="modal"><%= rc.closeButtonText %></button>
+        <button type="button" class="btn modalActionButton <%= rc.actionButtonClass %>"><%= rc.actionButtonText %></button>
+      </div>
+    </div>
+  </div>
+</div>

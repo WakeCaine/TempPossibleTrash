@@ -1,0 +1,4 @@
+http://blog.stevensanderson.com/2008/08/05/adding-httpsssl-support-to-aspnet-mvc-routing/
+http://tech.trailmax.info/2014/02/implemnting-https-everywhere-in-asp-net-mvc-application/
+http://weblogs.asp.net/dwahlin/requiring-ssl-for-asp-net-mvc-controllers
+http://www.robbagby.com/iis/self-signed-certificates-on-iis-7-the-easy-way-and-the-most-effective-way/

@@ -1,0 +1,100 @@
+﻿@model ESO_Project.Models.ApplicationUser
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel-heading">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    <font face="Times New Roman" size="20" color="yellow">@ViewBag.Title</font>
+                </th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+<div>
+
+
+
+    <div class="panel-body">
+        <div class="panel panel-primary">
+            <div class="bg-primary col-md-12 container-fluid">
+                <div class="col-md-1 container-fluid" align="left">
+                    <b>Profile</b>
+                </div>
+
+            </div>
+        </div>
+        <div class="panel panel-info">
+
+
+            <div class="dl-horizontal bg-info">
+                <dt>
+                    <b>Adres email:</b>
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.UserName)
+                </dd>
+                <dt>
+                    <b>Data rejestracji:</b>
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.RegisterDateTime)
+                </dd>
+                <dt>
+                    <b>Numer telefonu:</b>
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.PhoneNumber)
+                </dd>
+        </div>
+    </div>
+
+</div>
+
+
+<<div class="panel-body">
+    <div class="panel panel-primary">
+        <div class="bg-primary col-md-12 container-fluid">
+            <div class="col-md-6 container-fluid" align="left">
+                <b>Roles:</b>
+            </div>
+
+        </div>
+    </div>
+    <dl class="panel panel-info">
+        <dl class="bg-info col-md-12 container-fluid">
+
+            <dl class="dl-horizontal bg-info">
+                @if (ViewBag.RoleNames.Count == 0)
+                {
+                    <hr />
+                    <b><p class="bg-warning">No roles found. Contact administration</p></b>
+                }
+
+                <table class="table">
+
+                    @foreach (var item in ViewBag.RoleNames)
+                    {
+                        <tr>
+                            <td>
+                                <b> @item</b>
+                            </td>
+                        </tr>
+                    }
+                </table>
+
+            </dl>
+        </dl>
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Edit profile", "Edit", new { id = Model.Id }, new { @class = "btn btn-warning" }) |
+    @Html.ActionLink("List of users", "Index", null, new { @class = "btn btn-info" })
+</p>

@@ -1,0 +1,55 @@
+﻿@model ESO_Project.Models.ApplicationUser
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="panel-heading">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    <font face="Times New Roman" size="20" color="yellow">@ViewBag.Title</font>
+                </th>
+            </tr>
+        </thead>
+    </table>
+</div>
+<div class="bg-info img-rounded">
+    <font size="15" color="red ">Czy na pewno chcesz usunąć tego użytkownika?</font>
+</div>
+<div>
+
+    <div class="panel-body">
+        <div class="panel panel-primary">
+            <div class="bg-primary col-md-12 container-fluid">
+                <div class="col-md-1 container-fluid" align="left">
+                    <b>Profil</b>
+                </div>
+
+            </div>
+        </div>
+        <div class="panel panel-info">
+
+
+            <div class="dl-horizontal bg-info">
+                <dt>
+                    <b>Adres email:</b>
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.UserName)
+                </dd>
+
+            </div>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions bg-info">
+                    <input type="submit" value="Delete" class="btn btn-danger" />
+                    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-info" })
+                </div>
+            }
+        </div>
+    </div>
+</div>

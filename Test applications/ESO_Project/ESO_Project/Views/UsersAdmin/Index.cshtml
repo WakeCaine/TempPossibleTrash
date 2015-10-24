@@ -1,0 +1,44 @@
+﻿@model IEnumerable<ESO_Project.Models.ApplicationUser>
+<br /><br />
+@{
+    ViewBag.Title = "List of users";
+}
+
+<table class="table">
+    <td><b>Username:</b></td>
+    <td></td>
+    <td><b>Actions:</b></td>
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName, new { @class = "btn-sm" })
+            </td>
+
+            <td></td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn-sm btn-warning" })
+                @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn-sm btn-success" })
+
+
+                @if (item.ActiveFlag == 1 && item.UserName != @HttpContext.Current.User.Identity.Name)
+                {
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn-sm btn-danger" })
+                }
+                else if (item.ActiveFlag != 1 && item.UserName != @HttpContext.Current.User.Identity.Name)
+                {
+                    @Html.ActionLink("Reactive", "Reactive", new { id = item.Id }, new { @class = "btn-sm btn-info" })
+                }
+                else { }
+            </td>
+            <td></td>
+
+        </tr>
+    }
+
+</table>
+

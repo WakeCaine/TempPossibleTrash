@@ -1,0 +1,17 @@
+PRZYDATNE LINKI
+
+Serwis Webowy tutoriale:
+-MVC
+http://www.asp.net/mvc/overview/getting-started/introduction/getting-started
+
+-SSL
+http://www.asp.net/web-api/overview/security/working-with-ssl-in-web-api
+
+-transmisja w czasie rzeczywistym
+http://www.asp.net/signalr
+
+
+
+BOOTSTRAP
+http://getbootstrap.com/css/
+http://bootsnipp.com/forms
